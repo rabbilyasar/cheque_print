@@ -12,6 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard/index');
+    return view('index');
 });
 
+Route::resource('bank', 'BankController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
