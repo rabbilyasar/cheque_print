@@ -4,6 +4,7 @@
 
 @section('content')
 <div class="container">
+    <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 20px"><h3>EDIT DETAILS</h3></div>
     <div class="container">
         <form action="{{route('bank.update', $bank->id)}}" method="POST">
             @method('PATCH')

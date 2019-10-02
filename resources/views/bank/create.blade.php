@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <div style="display: flex; align-items: center; justify-content: center;"><h3>FILL UP THE DETAILS</h3></div>
+    <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 20px"><h3>FILL UP THE DETAILS</h3></div>
     <form action="{{route('bank.store')}}" method="POST">
         @csrf
         <div class="form-group">

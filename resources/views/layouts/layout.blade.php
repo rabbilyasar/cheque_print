@@ -86,18 +86,13 @@
                                     <span class="mini-click-non">Bank</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Dashboard v.1" href="{{route('bank.create')}}"><span class="mini-sub-pro">Create</span></a></li>
-                                    <li><a title="Dashboard v.1" href="{{route('bank.index')}}"><span class="mini-sub-pro">List</span></a></li>
+                                    <li><a title="Create" href="{{route('bank.create')}}"><span class="mini-sub-pro">Create</span></a></li>
+                                    <li><a title="List" href="{{route('bank.index')}}"><span class="mini-sub-pro">List</span></a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a title="Landing Page" href="events.html" aria-expanded="false"><span
-                                        class="educate-icon educate-event icon-wrap sub-icon-mg"
-                                        aria-hidden="true"></span> <span class="mini-click-non">Home</span></a>
-                            </li>
-                            <li>
-                                <a title="Landing Page" href="events.html" aria-expanded="false"><span
-                                        class="educate-icon educate-event icon-wrap sub-icon-mg"
+                                <a title="Cheque" href="events.html" aria-expanded="false"><span
+                                        class="educate-icon educate-form icon-wrap"
                                         aria-hidden="true"></span> <span class="mini-click-non">Cheque</span></a>
                             </li>
                         </ul>
