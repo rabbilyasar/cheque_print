@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Bank List')
+@section('title', 'Cheque List')
 
 @section('content')
 
@@ -8,25 +8,33 @@
     <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 20px">
         <h3>LIST OF RECORDS</h3>
     </div>
+
     <table class="table">
         <thead>
             <tr>
                 <th>Bank Name</th>
-                <th>Format</th>
-                <th>Created</th>
+                <th>Pay To</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>For</th>
+                <th>Created At</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                @forelse ($banks as $bank)
-                <td>{{strToUpper($bank->name)}}</td>
-                <td><span class="badge badge-secondary"
-                        style="padding:8px">{{$bank->status == 0 ? 'Universal Format' : 'I/B Format'}}</span></td>
-                <td>{{$bank->created_at->diffForHumans()}}</td>
+                @forelse ($cheques as $cheque)
+                <td>{{strToUpper($cheque->bank->name)}}</td>
+                <td>{{$cheque->pay_to}}</td>
+                <td>{{$cheque->amount}}</td>
+                <td>{{$cheque->date}}</td>
+                <td>{{$cheque->type == 0 ? 'A/C' : 'Cash'}}</td>
+                <td> {{$cheque->for}}</td>
+                <td>{{$cheque->created_at->diffForHumans()}}</td>
                 <td style="display:flex">
-                    <a href="{{route('bank.edit', $bank->id)}}" class="btn btn-info btn-sm">Edit</a>
-                    <form action="{{route('bank.destroy', $bank->id)}}" method="post">
+                    <a href="{{route('cheque.edit', $cheque->id)}}" class="btn btn-info btn-sm">Edit</a>
+                    <form action="{{route('cheque.destroy', $cheque->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm"
@@ -36,18 +44,12 @@
 
                 @empty
             <tr class="text-center text-danger">
-                <td colspan="10" style="padding-top: 20px">
-                    <h4>There is no data available at the moment</h4>
-                </td>
+                <td colspan="10" style="padding-top: 20px"><h4>There is no data available at the moment</h4></td>
             </tr>
-            {{-- <td style="margin-left:25%">
-                        <h2>There is no data available at the moment</h2>
-                    </td> --}}
             @endforelse
             </tr>
         </tbody>
     </table>
-
 </div>
 
 @endsection

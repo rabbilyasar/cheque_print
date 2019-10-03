@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('bank', 'BankController');
+Route::resource('cheque', 'ChequeController');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -61,7 +61,11 @@
         <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
         <!-- modernizr JS
 		============================================ -->
-        <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+        {{--  <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>  --}}
+        {{-- datepickercdn --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
     </head>
 
     <body>
@@ -90,10 +94,15 @@
                                     <li><a title="List" href="{{route('bank.index')}}"><span class="mini-sub-pro">List</span></a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a title="Cheque" href="events.html" aria-expanded="false"><span
-                                        class="educate-icon educate-form icon-wrap"
-                                        aria-hidden="true"></span> <span class="mini-click-non">Cheque</span></a>
+                            <li class="active">
+                                <a class="has-arrow" href="index.html">
+                                    <span class="educate-icon educate-form icon-wrap"></span>
+                                    <span class="mini-click-non">Cheque</span>
+                                </a>
+                                <ul class="submenu-angle" aria-expanded="true">
+                                    <li><a title="Create" href="{{route('cheque.create')}}"><span class="mini-sub-pro">Create</span></a></li>
+                                    <li><a title="List" href="{{route('cheque.index')}}"><span class="mini-sub-pro">List</span></a></li>
+                                </ul>
                             </li>
                         </ul>
                     </nav>
@@ -195,7 +204,7 @@
         </div>
 
         <!-- jquery
-		============================================ -->x
+		============================================ -->
         <script src="{{asset('assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
         <!-- bootstrap JS
 		============================================ -->
@@ -253,8 +262,13 @@
 		============================================ -->
         <script src="{{asset('assets/js/main.js')}}"></script>
         <!-- tawk chat JS
-		============================================ -->
+		=========================================== -->
         {{-- <script src="{{asset('assets/js/tawk-chat.js')}}"></script> --}}
+        {{-- jquery ui --}}
+        <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
     </body>
 
 </html>
+
+@yield('script')

@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Bank extends Model
 {
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
     protected $guarded = [];
+
+    public function cheque()
+    {
+        $this->hasMany(Cheque::class);
+    }
 }
