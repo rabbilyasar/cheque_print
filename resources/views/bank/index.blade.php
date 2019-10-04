@@ -18,8 +18,8 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($banks as $bank)
             <tr>
-                @forelse ($banks as $bank)
                 <td>{{strToUpper($bank->name)}}</td>
                 <td><span class="badge badge-secondary"
                         style="padding:8px">{{$bank->status == 0 ? 'Universal Format' : 'I/B Format'}}</span></td>
@@ -35,16 +35,13 @@
                 </td>
 
                 @empty
-            <tr class="text-center text-danger">
-                <td colspan="10" style="padding-top: 20px">
-                    <h4>There is no data available at the moment</h4>
-                </td>
+                <tr class="text-center text-danger">
+                    <td colspan="10" style="padding-top: 20px">
+                        <h4>There is no data available at the moment</h4>
+                    </td>
+                </tr>
             </tr>
-            {{-- <td style="margin-left:25%">
-                        <h2>There is no data available at the moment</h2>
-                    </td> --}}
             @endforelse
-            </tr>
         </tbody>
     </table>
 
