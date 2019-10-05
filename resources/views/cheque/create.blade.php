@@ -16,7 +16,7 @@
                         <label for="type">Select Type </label>
                         <select name="type" id="" class="form-control">
                             <option value="0">A/C</option>
-                            <option value="1">cash</option>
+                            <option value="1">CASH</option>
                         </select>
                     </div>
                     <div class="form-group">

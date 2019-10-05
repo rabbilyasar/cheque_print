@@ -50,7 +50,6 @@
                 <input type="text" class="form-control" placeholder="For (optional)" name="for"
                     value="{{$cheque->for}}">
                 <div style="color:red">{{$errors->first('for')}}</div>
-
             </div>
             <button type="submit" class="btn btn-primary" style="margin-top:2%">Edit</button>
         </form>

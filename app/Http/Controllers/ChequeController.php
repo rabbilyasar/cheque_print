@@ -67,7 +67,7 @@ class ChequeController extends Controller
      */
     public function show(Cheque $cheque)
     {
-        //
+        return view('cheque.show', compact('cheque'));
     }
 
     /**

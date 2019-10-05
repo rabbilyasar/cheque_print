@@ -17,7 +17,7 @@
                 <th>Amount</th>
                 <th>Date</th>
                 <th>Type</th>
-                <th>For</th>
+                {{-- <th>For</th> --}}
                 <th>Created At</th>
                 <th>Action</th>
             </tr>
@@ -25,12 +25,13 @@
         <tbody>
             <tr>
                 @forelse ($cheques as $cheque)
-                <td>{{strToUpper($cheque->bank->name)}}</td>
+                <td><a href="{{route('cheque.show', $cheque->id)}}">{{strToUpper($cheque->bank->name)}}</a></td>
                 <td>{{$cheque->pay_to}}</td>
                 <td>{{$cheque->amount}}</td>
+                {{-- <td>{{Helper::convertCurrency($cheque->amount)}}</td> --}}
                 <td>{{$cheque->date}}</td>
                 <td>{{$cheque->type == 0 ? 'A/C' : 'Cash'}}</td>
-                <td> {{$cheque->for}}</td>
+                {{-- <td> {{$cheque->for}}</td> --}}
                 <td>{{$cheque->created_at->diffForHumans()}}</td>
                 <td style="display:flex">
                     <a href="{{route('cheque.edit', $cheque->id)}}" class="btn btn-info btn-sm">Edit</a>
