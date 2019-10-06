@@ -27,7 +27,6 @@
 
       {{$cheque->amount}} <br>
       <div style="margin-top:2%"></div>
-
       {{strToUpper(Helper::convertCurrency($cheque->amount))}} <br>
     </div>
     <div class="col-md-3">
