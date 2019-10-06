@@ -269,7 +269,7 @@
         {{-- <script src="{{asset('assets/js/tawk-chat.js')}}"></script> --}}
         {{-- jquery ui --}}
         <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-        <script src="{{asset('js/app.js')}}"></script>
+        {{-- <script src="{{asset('js/app.js')}}"></script> --}}
         <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 
     </body>

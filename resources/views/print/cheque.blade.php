@@ -81,7 +81,8 @@
 
             </div>
         </form>
-        <button type="submit" onclick="printJS('print-form', 'html')">Print</button>
+        <button type="submit" onclick="printJS(
+            {printable: 'print-form', type: 'html', targetStyles: ['*']})">Print</button>
 
         <script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script>
     </body>
