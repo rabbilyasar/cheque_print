@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::resource('bank', 'BankController');
 Route::resource('cheque', 'ChequeController');
 
+Route::get('print/{cheque}', 'ChequeController@print')->name('print.cheque');
+
 
 Auth::routes();
 

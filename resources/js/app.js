@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.PrintJs = require('print-js');
 
 /**
  * The following block of code may be used to automatically register your

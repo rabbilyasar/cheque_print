@@ -70,6 +70,11 @@ class ChequeController extends Controller
         return view('cheque.show', compact('cheque'));
     }
 
+    public function print(Cheque $cheque)
+    {
+        return view('print.cheque', compact('cheque'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
