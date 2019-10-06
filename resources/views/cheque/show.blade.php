@@ -5,6 +5,10 @@
 @section('content')
 <div class="row">
   <div class="container">
+      <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 20px">
+          <h3>CHEQUE DETAILS</h3>
+      </div>
+  <hr>
     <div class="col-md-3">
       <strong>Type: </strong> <br>
       <div style="margin-top:5%"></div>
