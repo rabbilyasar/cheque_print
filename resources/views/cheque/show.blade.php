@@ -37,7 +37,7 @@
             <strong>Date: </strong>{{$cheque->date}}
         </div>
         <div class="col-md-3" style="margin-top:8%; padding-left:6%">
-            <a href="{{route('print.cheque', $cheque->id)}}">print</a>
+            <a href="{{route('print.cheque', $cheque->id)}}" class="btn btn-primary">print</a>
             {{-- <button type="submit" class="btn btn-primary" onclick="printJS('prinJs', 'html')"><i
                     class="fas fa-print"></i>Print</button> --}}
         </div>
@@ -45,7 +45,7 @@
     </div>
 </div>
 <hr>
-<div class="print-format">
+{{-- <div class="print-format">
         <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 20px; margin">
                 <h3>PRINT FORMAT</h3>
             </div>
@@ -70,5 +70,5 @@
                 <div class="amount-number"></div>
                 <div class="date"></div>
             </div>
-        </div>
+        </div> --}}
 @endsection

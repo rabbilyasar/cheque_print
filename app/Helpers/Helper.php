@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use Carbon\Carbon;
+
 class Helper
 {
    public static function convertCurrency(float $number)

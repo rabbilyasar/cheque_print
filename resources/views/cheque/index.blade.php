@@ -23,8 +23,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                @forelse ($cheques as $cheque)
+            @forelse ($cheques as $cheque)
+                <tr>
                 <td><a href="{{route('cheque.show', $cheque->id)}}">{{strToUpper($cheque->bank->name)}}</a></td>
                 <td>{{$cheque->pay_to}}</td>
                 <td>{{$cheque->amount}}</td>
@@ -47,8 +47,8 @@
             <tr class="text-center text-danger">
                 <td colspan="10" style="padding-top: 20px"><h4>There is no data available at the moment</h4></td>
             </tr>
+        </tr>
             @endforelse
-            </tr>
         </tbody>
     </table>
 </div>

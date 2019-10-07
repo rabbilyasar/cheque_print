@@ -14,38 +14,44 @@
         }
 
         div#date1 {
-            left: 96px;
-            top: 72px;
+            left: 67.590551181px;
+            top: 256.81889764px;
         }
 
         div#payTo1 {
-            left: 96px;
-            top: 105.6px;
+            left: 67.590551181px;
+            top: 285.05511811px;
         }
 
         div#for {
-            left: 96px;
-            top: 124.8px;
+            left: 67.590551181px;
+            top: 320.29133858px;
         }
 
         div#payTo2 {
-            left: 312px;
-            top: 72px;
+            left: 294.80314961px;
+            top: 307.73228346px;
         }
 
         div#date2 {
-            left: 748.8px;
-            top: 72px;
+            left: 745.34645669px;
+            top: 259.5984252px;
         }
 
         div#amountWords {
-            left: 384px;
-            top: 153.6px;
+            left: 367.39370079px;
+            top: 341.7480315px;
         }
 
         div#amountNumber {
-            left: 768.8px;
-            top: 153.6px;
+            left: 750.90551181px;
+            top: 360.64566929px;
+        }
+
+        @media print {
+            #printPageButton {
+                display: none;
+            }
         }
 
     </style>
@@ -65,7 +71,13 @@
                 {{$cheque->for}}
             </div>
             <div id="date2">
-                {{$cheque->date}}
+                @php
+                    $d = new Carbon\Carbon;
+                    $d = Carbon\Carbon::parse($cheque->date);
+                @endphp
+
+                {{$d->year}}
+
 
             </div>
             <div id="payTo2">
@@ -78,13 +90,14 @@
             </div>
             <div id="amountNumber">
                 {{$cheque->amount}}
-
             </div>
         </form>
-        <button type="submit" onclick="printJS(
-            {printable: 'print-form', type: 'html', targetStyles: ['*']})">Print</button>
+        <button type="submit" onclick="window.print()" id="printPageButton" style="margin-top:200px">Print</button>
 
-        <script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script>
+        {{-- <script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script> --}}
+        <script src="{{asset('js/print.js')}}"></script>
     </body>
 
 </html>
+
+
