@@ -75,6 +75,11 @@ class ChequeController extends Controller
         return view('print.cheque', compact('cheque'));
     }
 
+    public function printIb(Cheque $cheque)
+    {
+        return view('print.chequeIb', compact('cheque'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

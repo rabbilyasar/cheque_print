@@ -15,43 +15,64 @@
         }
 
         div#date1 {
-            left: 220.590551181px;
-            top: 256.81889764px;
+            left: 230.590551181px;
+            top: 400.81889764px;
+            font-size: 10.5px;
+            transform: rotate(-90deg)
         }
 
         div#payTo1 {
-            left: 195.590551181px;
-            top: 285.05511811px;
+            left: 220.590551181px;
+            top: 350.05511811px;
+            font-size: 10px;
+            width:150px;
+            transform: rotate(-90deg)
         }
 
-        div#for {
-            left: 207.590551181px;
-            top: 320.29133858px;
-        }
-
-        div#payTo2 {
-            left: 444.80314961px;
-            top: 307.73228346px;
+        div#amountNumber1 {
+            left: 250.90551181px;
+            top: 355.64566929px;
+            transform: rotate(-90deg)
         }
 
         div#date2 {
-            left: 865.34645669px;
+            left: 330.590551181px;
+            top: 400.81889764px;
+            font-size: 10.5px;
+            transform: rotate(-90deg)
+        }
+
+        div#amountNumber2 {
+            left: 350.90551181px;
+            top: 380.64566929px;
+            font-size: 10.5px;
+            transform: rotate(-90deg)
+        }
+
+
+        div#payTo2 {
+            left: 494.80314961px;
+            top: 307.73228346px;
+        }
+
+        div#date3 {
+            left: 925.34645669px;
             top: 259.5984252px;
         }
 
         div#amountWords {
-            left: 380.39370079px;
+            left: 440.39370079px;
             top: 341.7480315px;
         }
 
-        div#amountNumber {
-            left: 880.90551181px;
+        div#amountNumber3 {
+            left: 940.90551181px;
             top: 350.64566929px;
         }
 
         div.acPayee {
             top: 230px;
-            left: 390px;
+            left: 450px;
             transform: rotate(-28deg);
             color: red;
         }
@@ -67,18 +88,28 @@
 
     <body>
         {{-- {{$cheque}} --}}
-
+fd;jfdlk
         <form action="" method="post" id="print-form">
-            <div id="date1">
+            <div id="date1" style="">
                 {{$cheque->date}}
 
             </div>
-            <div id="payTo1" style="font-size: 12px; width:150px">
+            <div id="payTo1" style="">
                 {{strToUpper($cheque->pay_to)}}
 
             </div>
-            <div id="for" style="font-size: 12px; width:150px">
-                {{strToUpper($cheque->for)}}
+            <div id="amountNumber1" style="font-size: 10.5px; width:150px">
+                {{Helper::moneyFormat($cheque->amount).'/-'}}
+            </div>
+
+            <div id="date2">
+                    {{$cheque->date}}
+
+            </div>
+
+            <div id="amountNumber2">
+                    {{Helper::moneyFormat($cheque->amount).'/-'}}
+
             </div>
 
             @if ($cheque->type == 0)
@@ -90,7 +121,7 @@
             </div>
             @endif
 
-            <div id="date2">
+            <div id="date3">
                 @php
                 $d = strval($cheque->date);
                 $d = str_replace('/', '', $d);
@@ -114,7 +145,7 @@
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{strToUpper(Helper::convertCurrency($cheque->amount). " only")}}
 
             </div>
-            <div id="amountNumber">
+            <div id="amountNumber3">
 
                 {{Helper::moneyFormat($cheque->amount).'/-'}}
 
@@ -132,7 +163,7 @@
 </html>
 
 <script>
-    window.onload = function() {
+    {{--  window.onload = function() {
         window.print();
-    };
+    };  --}}
 </script>

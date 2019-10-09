@@ -19,6 +19,7 @@ Route::resource('bank', 'BankController');
 Route::resource('cheque', 'ChequeController');
 
 Route::get('print/{cheque}', 'ChequeController@print')->name('print.cheque');
+Route::get('print/ib/{cheque}', 'ChequeController@printIb')->name('print.cheque.ib');
 
 
 Auth::routes();
