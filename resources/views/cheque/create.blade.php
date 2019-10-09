@@ -30,13 +30,13 @@
                     </div>
                     <div class="form-group">
                         <label>Pay To</label>
-                        <input type="text" class="form-control" placeholder="Pay To" 
+                        <input type="text" class="form-control" placeholder="Pay To"
                             id="payTo" name="pay_to">
                     </div>
                     <div class="form-group">
                         <label>Amount (number)</label>
                         <input type="number" class="form-control" placeholder="Amount in number"
-                         id="amount" name="amount">
+                         id="amount" name="amount" step=0.001>
                     </div>
                     <div class="form-group">
                         <label>Amount (words)</label>

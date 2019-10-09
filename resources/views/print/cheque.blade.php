@@ -7,6 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Print cheque</title>
         <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+        <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     </head>
     <style>
         div {
@@ -19,12 +20,12 @@
         }
 
         div#payTo1 {
-            left: 67.590551181px;
+            left: 45.590551181px;
             top: 285.05511811px;
         }
 
         div#for {
-            left: 67.590551181px;
+            left: 57.590551181px;
             top: 320.29133858px;
         }
 
@@ -34,18 +35,25 @@
         }
 
         div#date2 {
-            left: 745.34645669px;
+            left: 710.34645669px;
             top: 259.5984252px;
         }
 
         div#amountWords {
-            left: 367.39370079px;
+            left: 350.39370079px;
             top: 341.7480315px;
         }
 
         div#amountNumber {
-            left: 750.90551181px;
-            top: 360.64566929px;
+            left: 730.90551181px;
+            top: 350.64566929px;
+        }
+
+        div.acPayee {
+            top: 230px;
+            left: 240px;
+            transform: rotate(-28deg);
+            color: red;
         }
 
         @media print {
@@ -63,36 +71,54 @@
                 {{$cheque->date}}
 
             </div>
-            <div id="payTo1">
+            <div id="payTo1" style="font-size: 12px; width:150px">
                 {{strToUpper($cheque->pay_to)}}
 
             </div>
-            <div id="for">
-                {{$cheque->for}}
+            <div id="for"  style="font-size: 12px; width:150px">
+                {{strToUpper($cheque->for)}}
             </div>
+
+            @if ($cheque->type == 0)
+
+            <div class="acPayee">
+                **
+                AC PAYEE ONLY
+                **
+            </div>
+            @endif
+
             <div id="date2">
                 @php
-                    $d = new Carbon\Carbon;
-                    $d = Carbon\Carbon::parse($cheque->date);
+                $d = strval($cheque->date);
+                $d = str_replace('/', '', $d);
                 @endphp
-
-                {{$d->year}}
-
-
+                <div style="display:flex">
+                    <div class="day1" style="margin-left:10px">{{$d[0]}}</div>
+                    <div class="day2" style="margin-left:35px">{{$d[1]}}</div>
+                    <div class="day2" style="margin-left:60px">{{$d[2]}}</div>
+                    <div class="mon1" style="margin-left:80px">{{$d[3]}}</div>
+                    <div class="mon2" style="margin-left:105px">{{$d[4]}}</div>
+                    <div class="yr1" style="margin-left:130px">{{$d[5]}}</div>
+                    <div class="yr2" style="margin-left:150px">{{$d[6]}}</div>
+                    <div class="yr3" style="margin-left:175px">{{$d[7]}}</div>
+                </div>
             </div>
-            <div id="payTo2">
+            <div id="payTo2" style="font-size:13.5px">
                 {{strToUpper($cheque->pay_to)}}
 
             </div>
-            <div id="amountWords">
-                {{strToUpper(Helper::convertCurrency($cheque->amount))}}
+            <div id="amountWords" style="width:330px; line-height: 30px; font-size: 13.5px">
+                {{strToUpper(Helper::convertCurrency($cheque->amount). " only")}}
 
             </div>
             <div id="amountNumber">
-                {{$cheque->amount}}
+
+                {{Helper::moneyFormat($cheque->amount).'/-'}}
+
             </div>
         </form>
-        <button type="submit" onclick="window.print()" id="printPageButton" style="margin-top:200px">Print</button>
+        <button type="submit" onclick="window.print()" id="printPageButton" style="margin-top:500px; margin-left:1000px;" class="btn btn-primary">Print</button>
 
         {{-- <script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script> --}}
         <script src="{{asset('js/print.js')}}"></script>
@@ -100,4 +126,8 @@
 
 </html>
 
-
+<script>
+    window.onload = function() {
+        window.print();
+    };
+</script>

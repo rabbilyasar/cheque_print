@@ -41,6 +41,7 @@
                         <button type="submit" class="btn btn-danger btn-sm"
                             onclick="return confirm('Item will be deleted permanently. YOU SURE?')">Delete</button>
                     </form>
+                    <a href="{{route('print.cheque', $cheque->id)}}" class="btn btn-primary btn-sm">Print</a>
                 </td>
 
                 @empty

@@ -17,7 +17,7 @@ class CreateChequesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('bank_id');
             $table->string('pay_to');
-            $table->integer('amount');
+            $table->float('amount',12, 2);
             $table->string('date');
             $table->integer('type')->default(0);
             $table->string('for')->nullable();
