@@ -20,7 +20,9 @@ class ChequeController extends Controller
     }
 
     public function index()
+
     {
+        
         $cheques = Cheque::orderBy('created_at', 'desc')->get();
         // dd($banks);
         return view('cheque.index', compact('cheques'));

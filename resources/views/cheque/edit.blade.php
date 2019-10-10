@@ -57,7 +57,7 @@
                     value="{{$cheque->for}}">
                 <div style="color:red">{{$errors->first('for')}}</div>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:2%">Edit</button>
+            <button type="submit" class="btn btn-primary" style="margin-top:2%">Save</button>
         </form>
     </div>
 </div>
@@ -65,6 +65,15 @@
 
 @section('script')
 <script>
+    $( function() {
+        $( "#simple" ).datepicker({
+            dateFormat: 'dd/mm/yy',
+            todayHighlight: true,
+            orientation: 'bottom right',
+            autoclose: true,
+            container: '#sandbox'
+        });
+    } );
     function inWords(value) {
                 var fraction = Math.round(frac(value) * 100);
                 var f_text = "";

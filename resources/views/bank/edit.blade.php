@@ -22,7 +22,7 @@
                     <option value="1" {{$bank->status == 1 ? 'selected' : ''}} >I/B Format</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Edit</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 </div>

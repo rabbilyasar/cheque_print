@@ -16,6 +16,7 @@
         <!-- Bootstrap CSS
 		============================================ -->
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <!-- Bootstrap CSS
 		============================================ -->
         <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
@@ -61,12 +62,20 @@
         <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
         <!-- modernizr JS
 		============================================ -->
-        {{--  <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>  --}}
+        {{-- <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script> --}}
         {{-- datepickercdn --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-        <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
 
+        {{--  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
+        </script>  --}}
 
 
     </head>
@@ -79,9 +88,11 @@
         <div class="left-sidebar-pro">
             <nav id="sidebar" class="">
                 <div class="sidebar-header">
-                    <a href="{{url('/')}}"><img class="main-logo" src="https://www.taufikagroup.com/images/logo.png" alt="" style="width:150px"/></a>
+                    <a href="{{url('/')}}"><img class="main-logo" src="https://www.taufikagroup.com/images/logo.png"
+                            alt="" style="width:150px" /></a>
 
-                    <strong><a href="{{url('/')}}"><img src="https://www.taufikagroup.com/images/logo.png" alt=""  /></a></strong>
+                    <strong><a href="{{url('/')}}"><img src="https://www.taufikagroup.com/images/logo.png"
+                                alt="" /></a></strong>
                 </div>
                 <div class="left-custom-menu-adp-wrap comment-scrollbar">
                     @auth
@@ -93,8 +104,10 @@
                                     <span class="mini-click-non">Bank</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Create" href="{{route('bank.create')}}"><span class="mini-sub-pro">Create</span></a></li>
-                                    <li><a title="List" href="{{route('bank.index')}}"><span class="mini-sub-pro">List</span></a></li>
+                                    <li><a title="Create" href="{{route('bank.create')}}"><span
+                                                class="mini-sub-pro">Create</span></a></li>
+                                    <li><a title="List" href="{{route('bank.index')}}"><span
+                                                class="mini-sub-pro">List</span></a></li>
                                 </ul>
                             </li>
                             <li class="active">
@@ -103,8 +116,10 @@
                                     <span class="mini-click-non">Cheque</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Create" href="{{route('cheque.create')}}"><span class="mini-sub-pro">Create</span></a></li>
-                                    <li><a title="List" href="{{route('cheque.index')}}"><span class="mini-sub-pro">List</span></a></li>
+                                    <li><a title="Create" href="{{route('cheque.create')}}"><span
+                                                class="mini-sub-pro">Create</span></a></li>
+                                    <li><a title="List" href="{{route('cheque.index')}}"><span
+                                                class="mini-sub-pro">List</span></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -120,7 +135,8 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="logo-pro">
-                            {{--  <a href="{{url('/')}}"><img class="main-logo" src="https://www.taufikagroup.com/images/logo.png" alt="" /></a>  --}}
+                            {{-- <a href="{{url('/')}}"><img class="main-logo"
+                                src="https://www.taufikagroup.com/images/logo.png" alt="" /></a> --}}
                         </div>
                     </div>
                 </div>
@@ -133,7 +149,7 @@
                                 <div class="header-top-wraper">
                                     <div class="row">
                                         <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                            {{--  <div class="menu-switcher-pro">
+                                            {{-- <div class="menu-switcher-pro">
                                                 <button type="button" id="sidebarCollapse"
                                                     class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
                                                     <i class="educate-icon educate-nav"></i>
@@ -141,44 +157,50 @@
                                             </div>  --}}
                                         </div>
                                         <div class="col-md-12" style="padding:20px">
-                                            <div class="header-top-menu tabl-d-n" style="margin-left:85%" >
-                                                    <!-- Left Side Of Navbar -->
-                                                    <ul class="navbar-nav mr-auto">
+                                            <div class="header-top-menu tabl-d-n" style="margin-left:85%">
+                                                <!-- Left Side Of Navbar -->
+                                                <ul class="navbar-nav mr-auto">
 
-                                                    </ul>
+                                                </ul>
 
-                                                    <!-- Right Side Of Navbar -->
-                                                    <ul class="navbar-nav ml-auto">
-                                                        <!-- Authentication Links -->
-                                                        @guest
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                                            </li>
-                                                            @if (Route::has('register'))
-                                                                <li class="nav-item">
-                                                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                                                </li>
-                                                            @endif
-                                                        @else
-                                                            <li class="nav-item dropdown">
-                                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                                                </a>
+                                                <!-- Right Side Of Navbar -->
+                                                <ul class="navbar-nav ml-auto">
+                                                    <!-- Authentication Links -->
+                                                    @guest
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                            href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                    </li>
+                                                    @if (Route::has('register'))
+                                                    <li class="nav-item">
+                                                        <a class="nav-link"
+                                                            href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                    </li>
+                                                    @endif
+                                                    @else
+                                                    <li class="nav-item dropdown">
+                                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false" v-pre>
+                                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                        </a>
 
-                                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                                                       onclick="event.preventDefault();
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                            aria-labelledby="navbarDropdown">
+                                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault();
                                                                                      document.getElementById('logout-form').submit();">
-                                                                        {{ __('Logout') }}
-                                                                    </a>
+                                                                {{ __('Logout') }}
+                                                            </a>
 
-                                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                                        @csrf
-                                                                    </form>
-                                                                </div>
-                                                            </li>
-                                                        @endguest
-                                                    </ul>
+                                                            <form id="logout-form" action="{{ route('logout') }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                        </div>
+                                                    </li>
+                                                    @endguest
+                                                </ul>
                                             </div>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
@@ -196,7 +218,7 @@
                 <div class="container-fluid">
                     <div class="row" style="padding-top: 50px">
                         <div class="col-md-12">
-                            <div class="" style="background:white; padding:30px" >
+                            <div class="" style="background:white; padding:30px">
                                 @include('layouts.flashMessage')
                                 @yield('content')
                             </div>
@@ -246,8 +268,6 @@
         <!-- morrisjs JS
 		============================================ -->
         <script src="{{asset('assets/js/morrisjs/raphael-min.js')}}"></script>
-        {{--  <script src="{{asset('assets/js/morrisjs/morris.js')}}"></script>  --}}
-        {{--  <script src="{{asset('assets/js/morrisjs/morris-active.js')}}"></script>  --}}
         <!-- morrisjs JS
 		============================================ -->
         <script src="{{asset('assets/js/sparkline/jquery.sparkline.min.js')}}"></script>
@@ -266,11 +286,9 @@
         <script src="{{asset('assets/js/main.js')}}"></script>
         <!-- tawk chat JS
 		=========================================== -->
-        {{-- <script src="{{asset('assets/js/tawk-chat.js')}}"></script> --}}
         {{-- jquery ui --}}
         <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-        {{-- <script src="{{asset('js/app.js')}}"></script> --}}
-        <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
     </body>
 
