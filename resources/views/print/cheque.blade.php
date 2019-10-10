@@ -51,8 +51,11 @@
 
         div.acPayee {
             top: 230px;
-            left: 390px;
-            transform: rotate(-28deg);
+            left: 370px;
+            word-spacing: 8px;
+            border-top: 3px solid red;
+            border-bottom: 3px solid red;
+            transform: rotate(-45deg);
             color: red;
         }
 
@@ -84,10 +87,9 @@
             @if ($cheque->type == 0)
 
             <div class="acPayee">
-                **
                 AC PAYEE ONLY
-                **
             </div>
+
             @endif
 
             <div id="date2">

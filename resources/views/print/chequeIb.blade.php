@@ -15,14 +15,14 @@
         }
 
         div#date1 {
-            left: 230.590551181px;
+            left: 195.590551181px;
             top: 400.81889764px;
             font-size: 10.5px;
             transform: rotate(-90deg)
         }
 
         div#payTo1 {
-            left: 220.590551181px;
+            left: 170.590551181px;
             top: 350.05511811px;
             font-size: 10px;
             width:150px;
@@ -30,50 +30,53 @@
         }
 
         div#amountNumber1 {
-            left: 250.90551181px;
+            left: 188.90551181px;
             top: 355.64566929px;
             transform: rotate(-90deg)
         }
 
         div#date2 {
-            left: 330.590551181px;
+            left: 300.590551181px;
             top: 400.81889764px;
             font-size: 10.5px;
             transform: rotate(-90deg)
         }
 
         div#amountNumber2 {
-            left: 350.90551181px;
-            top: 380.64566929px;
+            left: 310.90551181px;
+            top: 387.64566929px;
             font-size: 10.5px;
             transform: rotate(-90deg)
         }
 
 
         div#payTo2 {
-            left: 494.80314961px;
-            top: 307.73228346px;
+            left: 474.80314961px;
+            top: 330.73228346px;
         }
 
         div#date3 {
-            left: 925.34645669px;
-            top: 259.5984252px;
+            left: 922.34645669px;
+            top: 267.5984252px;
         }
 
         div#amountWords {
             left: 440.39370079px;
-            top: 341.7480315px;
+            top: 360.7480315px;
         }
 
         div#amountNumber3 {
             left: 940.90551181px;
-            top: 350.64566929px;
+            top: 370.64566929px;
         }
 
         div.acPayee {
-            top: 230px;
-            left: 450px;
-            transform: rotate(-28deg);
+            top: 250px;
+            left: 380px;
+            word-spacing: 8px;
+            border-top: 3px solid red;
+            border-bottom: 3px solid red;
+            transform: rotate(-45deg);
             color: red;
         }
 
@@ -87,8 +90,6 @@
     </style>
 
     <body>
-        {{-- {{$cheque}} --}}
-fd;jfdlk
         <form action="" method="post" id="print-form">
             <div id="date1" style="">
                 {{$cheque->date}}
@@ -115,9 +116,7 @@ fd;jfdlk
             @if ($cheque->type == 0)
 
             <div class="acPayee">
-                **
                 AC PAYEE ONLY
-                **
             </div>
             @endif
 
@@ -127,12 +126,12 @@ fd;jfdlk
                 $d = str_replace('/', '', $d);
                 @endphp
                 <div style="display:flex">
-                    <div class="day1" style="margin-left:10px">{{$d[0]}}</div>
-                    <div class="day2" style="margin-left:35px">{{$d[1]}}</div>
-                    <div class="day3" style="margin-left:60px">{{$d[2]}}</div>
-                    <div class="mon1" style="margin-left:80px">{{$d[3]}}</div>
-                    <div class="mon2" style="margin-left:105px">{{$d[4]}}</div>
-                    <div class="yr1" style="margin-left:130px">{{$d[5]}}</div>
+                    <div class="day1" style="">{{$d[0]}}</div>
+                    <div class="day2" style="margin-left:25px">{{$d[1]}}</div>
+                    <div class="day3" style="margin-left:50px">{{$d[2]}}</div>
+                    <div class="mon1" style="margin-left:75px">{{$d[3]}}</div>
+                    <div class="mon2" style="margin-left:100px">{{$d[4]}}</div>
+                    <div class="yr1" style="margin-left:125px">{{$d[5]}}</div>
                     <div class="yr2" style="margin-left:150px">{{$d[6]}}</div>
                     <div class="yr3" style="margin-left:175px">{{$d[7]}}</div>
                 </div>
@@ -142,7 +141,7 @@ fd;jfdlk
 
             </div>
             <div id="amountWords" style="width:440px; line-height: 30px; font-size: 13.5px">
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{strToUpper(Helper::convertCurrency($cheque->amount). " only")}}
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{strToUpper(Helper::convertCurrency($cheque->amount). " only")}}
 
             </div>
             <div id="amountNumber3">
