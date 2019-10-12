@@ -44,7 +44,7 @@
             <tr>
                 <td><a href="{{route('cheque.show', $cheque->id)}}">{{strToUpper($cheque->bank->name)}}</a></td>
                 <td>{{$cheque->pay_to}}</td>
-                <td>{{$cheque->amount}}</td>
+                <td>{{Helper::moneyFormat($cheque->amount)}}</td>
                 {{-- <td>{{Helper::convertCurrency($cheque->amount)}}</td> --}}
                 <td>{{$cheque->date}}</td>
                 <td>{{$cheque->type == 0 ? 'A/C' : 'Cash'}}</td>

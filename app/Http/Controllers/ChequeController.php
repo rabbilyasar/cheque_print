@@ -33,7 +33,10 @@ class ChequeController extends Controller
 
         // dd($request->all());
         // $cheques= Cheque::whereDate('created_at', $request->from_date) && Cheque::whereDate('created_at', $request->to_date)->get();
-        $cheques = Cheque::whereBetween('created_at', [$request->from_date, $request->to_date])->get();
+        $cheques = Cheque::where('created_at', '>=', $request->from_date)
+            ->where('created_at', '<=',  $request->to_date)    
+            ->get();
+        // $cheques = Cheque::whereBetween('created_at', [$request->from_date, $request->to_date])->get();
 
         return view('cheque.index', compact('cheques'));
 

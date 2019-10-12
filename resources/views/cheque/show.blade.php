@@ -19,6 +19,8 @@
             <strong>Amount (Number): </strong> <br>
             <div style="margin-top:5%"></div>
             <strong>Amount (Words):</strong>
+            <div style="margin-top:5%"></div>
+            <strong>For:</strong>
         </div>
         <div class="col-md-6">
             {{$cheque->type == 0 ? 'A/C' : 'CASH'}} <br>
@@ -29,17 +31,17 @@
             {{strToUpper($cheque->pay_to)}} <br>
             <div style="margin-top:2%"></div>
 
-            {{$cheque->amount}} <br>
+            {{Helper::moneyFormat($cheque->amount)}} <br>
             <div style="margin-top:2%"></div>
             {{strToUpper(Helper::convertCurrency($cheque->amount))}} <br>
+            <div style="margin-top:2%"></div>
+            {{ $cheque->for ? $cheque->for : 'No Data' }} <br>
         </div>
         <div class="col-md-3">
             <strong>Date: </strong>{{$cheque->date}}
         </div>
-        <div class="col-md-3" style="margin-top:8%; padding-left:6%">
+        <div class="col-md-3" style="margin-top:10%; padding-left:6%">
             <a href="{{route('print.cheque', $cheque->id)}}" class="btn btn-primary">print</a>
-            {{-- <button type="submit" class="btn btn-primary" onclick="printJS('prinJs', 'html')"><i
-                    class="fas fa-print"></i>Print</button> --}}
         </div>
 
     </div>

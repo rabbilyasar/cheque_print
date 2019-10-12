@@ -77,6 +77,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
         </script>  --}}
 
+        <style>
+            .isActive {
+                background-color: gainsboro;
+            }
+        </style>
+
 
     </head>
 
@@ -104,10 +110,16 @@
                                     <span class="mini-click-non">Bank</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Create" href="{{route('bank.create')}}"><span
-                                                class="mini-sub-pro">Create</span></a></li>
-                                    <li><a title="List" href="{{route('bank.index')}}"><span
-                                                class="mini-sub-pro">List</span></a></li>
+                                    <li class="{{Route::currentRouteNamed('bank.create') ? 'isActive' : ''}}">
+                                        <a title="Create" href="{{route('bank.create')}}" >
+                                            <span class="mini-sub-pro">Create</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{Route::currentRouteNamed('bank.index') ? 'isActive' : ''}}">
+                                        <a title="List" href="{{route('bank.index')}}" >
+                                            <span class="mini-sub-pro">List</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="active">
@@ -116,10 +128,16 @@
                                     <span class="mini-click-non">Cheque</span>
                                 </a>
                                 <ul class="submenu-angle" aria-expanded="true">
-                                    <li><a title="Create" href="{{route('cheque.create')}}"><span
-                                                class="mini-sub-pro">Create</span></a></li>
-                                    <li><a title="List" href="{{route('cheque.index')}}"><span
-                                                class="mini-sub-pro">List</span></a></li>
+                                    <li class="{{Route::currentRouteNamed('cheque.create') ? 'isActive' : ''}}">
+                                        <a title="Create" href="{{route('cheque.create')}}" >
+                                            <span class="mini-sub-pro">Create</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{Route::currentRouteNamed('cheque.index') ? 'isActive' : ''}}">
+                                        <a title="List" href="{{route('cheque.index')}}" >
+                                            <span class="mini-sub-pro">List</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

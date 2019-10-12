@@ -12,10 +12,10 @@
     <div class="row input-daterange">
         <form action="{{route('bank.filter')}}" method="get">
             <div class="col-md-4">
-                <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
+                <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" autocomplete="off" readonly/>
             </div>
             <div class="col-md-4">
-                <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
+                <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" autocomplete="off" readonly/>
             </div>
             <div class="col-md-4">
                 <button type="submit" name="filter" id="filter" class="btn btn-primary">Filter</button>
