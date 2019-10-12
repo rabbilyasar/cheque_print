@@ -8,6 +8,23 @@
     <div style="display: flex; align-items: center; justify-content: center; padding-bottom: 20px">
         <h3>LIST OF RECORDS</h3>
     </div>
+    <div class="row input-daterange">
+        <form action="{{route('cheque.filter')}}" method="get">
+            <div class="col-md-4">
+                <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
+            </div>
+            <div class="col-md-4">
+                <button type="submit" name="filter" id="filter" class="btn btn-primary">Filter</button>
+                <a href="{{route('cheque.index')}}" class="btn btn-info">Refresh</a>
+            </div>
+        </form>
+        <div class="col-md-4" style="display: flex">
+        </div>
+    </div>
+    <br />
 
     <table class="table table-bordered table-striped">
         <thead>
@@ -36,7 +53,8 @@
                 <td style="display:flex;">
                     <a href="{{route('cheque.show', $cheque->id)}}" class="btn btn-warning btn-sm"
                         style=" margin-left:4px;">View</a>
-                    <a href="{{route('cheque.edit', $cheque->id)}}" class="btn btn-info btn-sm" style=" margin-left:4px;">Edit</a>
+                    <a href="{{route('cheque.edit', $cheque->id)}}" class="btn btn-info btn-sm"
+                        style=" margin-left:4px;">Edit</a>
                     <form action="{{route('cheque.destroy', $cheque->id)}}" method="post">
                         @csrf
                         @method('DELETE')
@@ -69,6 +87,21 @@
 @section('script')
 <script>
     $(document).ready( function () {
+        $('#from_date').datepicker({
+        dateFormat: 'yy-mm-dd',
+        todayHighlight: true,
+        orientation: 'bottom right',
+        autoclose: true,
+        container: '#sandbox'
+        })
+        $('#to_date').datepicker({
+            dateFormat: 'yy-mm-dd',
+        todayHighlight: true,
+        orientation: 'bottom right',
+        autoclose: true,
+        container: '#sandbox'
+        })
+
         $('.table').DataTable();
     } );
 </script>

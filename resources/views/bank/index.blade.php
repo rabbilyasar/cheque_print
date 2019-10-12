@@ -10,16 +10,20 @@
     </div>
 
     <div class="row input-daterange">
-        <div class="col-md-4">
-            <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" readonly />
-        </div>
-        <div class="col-md-4">
-            <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" readonly />
-        </div>
-        <div class="col-md-4">
-            <button type="button" name="filter" id="filter" class="btn btn-primary">Filter</button>
-            <button type="button" name="refresh" id="refresh" class="btn btn-default">Refresh</button>
-        </div>
+        <form action="{{route('bank.filter')}}" method="get">
+            <div class="col-md-4">
+                <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" />
+            </div>
+            <div class="col-md-4">
+                <button type="submit" name="filter" id="filter" class="btn btn-primary">Filter</button>
+                <a href="{{route('bank.index')}}" class="btn btn-info" >Refresh</a>
+            </div>
+        </form>
+            <div class="col-md-4" style="display: flex">
+            </div>
     </div>
     <br />
     <table class="table table-bordered table-striped" id="order_table">
@@ -39,7 +43,8 @@
                         style="padding:8px">{{$bank->status == 0 ? 'Universal Format' : 'I/B Format'}}</span></td>
                 <td>{{$bank->created_at->diffForHumans()}}</td>
                 <td style="display:flex">
-                    <a href="{{route('bank.edit', $bank->id)}}" class="btn btn-info btn-sm" style=" margin-left:4px;">Edit</a>
+                    <a href="{{route('bank.edit', $bank->id)}}" class="btn btn-info btn-sm"
+                        style=" margin-left:4px;">Edit</a>
                     <form action="{{route('bank.destroy', $bank->id)}}" method="post">
                         @csrf
                         @method('DELETE')
@@ -65,65 +70,24 @@
 
 @section('script')
 <script>
+    $(document).ready(function() {
+        $('#from_date').datepicker({
+            dateFormat: 'yy-mm-dd',
+        todayHighlight: true,
+        orientation: 'bottom right',
+        autoclose: true,
+        container: '#sandbox'
+        })
+        $('#to_date').datepicker({
+            dateFormat: 'yy-mm-dd',
+        todayHighlight: true,
+        orientation: 'bottom right',
+        autoclose: true,
+        container: '#sandbox'
+        })
 
-
-    {{--  $(document).ready(function(){
-                $('.input-daterange').datepicker({
-                 todayBtn:'linked',
-                 format:'dd-mm-yyyy',
-                 autoclose:true
-                });
-
-                load_data();
-
-                function load_data(from_date = '', to_date = '')
-                {
-                 $('#order_table').DataTable({
-                  processing: true,
-                  serverSide: true,
-                  ajax: {
-                   url:'{{ route("bank.index") }}',
-                   data:{from_date:from_date, to_date:to_date}
-                  },
-                  columns: [
-                   {
-                    data:'id',
-                    name:'id'
-                   },
-                   {
-                    data:'name',
-                    name:'name'
-                   },
-                   {
-                    data:'status',
-                    name:'status'
-                   }
-                  ]
-                 });
-                }
-
-                $('#filter').click(function(){
-                 var from_date = $('#from_date').val();
-                 var to_date = $('#to_date').val();
-                 if(from_date != '' &&  to_date != '')
-                 {
-                  $('#order_table').DataTable().destroy();
-                  load_data(from_date, to_date);
-                 }
-                 else
-                 {
-                  alert('Both Date is required');
-                 }
-                });
-
-                $('#refresh').click(function(){
-                 $('#from_date').val('');
-                 $('#to_date').val('');
-                 $('#order_table').DataTable().destroy();
-                 load_data();
-                });
-
-               });  --}}
+        $('#order_table').DataTable();
+    })
 
 </script>
 @endsection

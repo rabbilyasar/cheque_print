@@ -25,6 +25,16 @@ class BankController extends Controller
         return view('bank.index', compact('banks'));
     }
 
+    public function filter(Request $request)
+    {
+
+        // dd($request->from_date + '0001-01');
+        $banks = Bank::whereBetween('created_at', [$request->from_date, $request->to_date])->get();
+
+        return view('bank.index', compact('banks'));
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

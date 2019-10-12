@@ -28,6 +28,17 @@ class ChequeController extends Controller
         return view('cheque.index', compact('cheques'));
     }
 
+    public function filter(Request $request)
+    {
+
+        // dd($request->all());
+        // $cheques= Cheque::whereDate('created_at', $request->from_date) && Cheque::whereDate('created_at', $request->to_date)->get();
+        $cheques = Cheque::whereBetween('created_at', [$request->from_date, $request->to_date])->get();
+
+        return view('cheque.index', compact('cheques'));
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
